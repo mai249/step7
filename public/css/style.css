@@ -1,0 +1,371 @@
+/* main__list */
+.main__list{
+    margin: 2em;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* search__form */
+.search__form{
+    background: #efefef;
+    padding: 1em 2em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.search__form .title{
+    margin: 0;
+}
+
+.search__form form{
+    padding: 0 1em;
+}
+
+.search__form .form__courner{
+    display: inline-grid;
+    justify-items: start;
+    grid-template-columns: 1fr 2fr;
+}
+
+.search__form .search_title{
+    margin: 0.5em 0;
+}
+
+.search__form input:not(.button),
+.search__form select{
+    height: fit-content;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.search__form input:not(.button){
+    text-indent: 5px;
+}
+
+.search__form .submit__courner{
+    margin-top: 0.5em;
+}
+
+.search__form .button,
+.search__form a{
+    padding: 5px 30px;
+    font-weight: bold;
+    border: 1px solid #666;
+    cursor: pointer;
+}
+
+.search__form .button{
+    background: #fff;
+    padding: 3px 30px;
+}
+
+.search__form a{
+    font-size: .9em;
+    background: #eee;
+    color: #666;
+}
+
+.search__form .button:hover,
+.search__form a:hover{
+    opacity: 0.7;
+}
+
+/* registration */
+.registration{
+    margin: 1em 0;
+}
+
+.registration .registration__btn{
+    padding: 5px 30px;
+    font-weight: bold;
+    background: #fff;
+    color: #EF3B2D;
+    border: 1px solid #EF3B2D;
+}
+
+.registration .registration__btn:hover{
+    opacity: 0.7;
+}
+
+/* box__list */
+
+.box__list{
+    margin: 1em;
+    padding: 10px 0;
+    border-bottom: 1px solid #aaa;
+}
+
+.box__list:last-child{
+    border: none;
+}
+
+.box__list p.id{
+    margin: 0;
+}
+
+.box__list h4{
+    margin: 0 0 1em;
+    font-size: 1.1em;
+}
+
+.list__container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sectiong__image{
+    max-width: 25vw;
+    width: 35%;
+}
+
+.sectiong__image img{
+    width: 100%;
+}
+
+.section__text{
+    margin-left: 1em;
+    width: 60%;
+}
+
+.section__text table{
+    text-align: left;
+    width: 100%;
+}
+
+.section__text table th{
+    width: 30%;
+    vertical-align: top;
+}
+
+.area__button{
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.area__button button{
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.area__button button:hover{
+    opacity: 0.7;
+}
+
+/* regist__form */
+.regist__form{
+    background: #efefef;
+    padding: 1em 2em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.result{
+    text-align: center;
+}
+
+.result p{
+    font-size: 18px;
+    background: #F09C2E;
+    color: #fff;
+    display: inline-block;
+    padding: 0.5em;
+    margin: 0.5em auto;
+}
+
+.regist__form h1{
+    margin: 0.3em 0;
+}
+
+.regist__form label{
+    margin: 0;
+}
+
+.regist__form form{
+    padding: 0 1em;
+}
+
+.regist__form input:not(.button),
+.regist__form select,
+.regist__form textarea{
+    height: fit-content;
+    padding: 10px;
+    width: calc(100% - 10px);
+    margin-left: 10px;
+}
+
+.regist__form input:not(.button){
+    text-indent: 5px;
+}
+
+.regist__form .form-group{
+    margin-bottom: 0.8em;
+}
+
+.regist__form .validation{
+    margin: 0 0 0 10px;
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.regist__form .submit__courner{
+    text-align: center;
+}
+
+.regist__form .button,
+.regist__form a{
+    padding: 5px 30px;
+    font-weight: bold;
+}
+
+.regist__form .button{
+    color: #FFF;
+    background: #EF3B2D;
+    border: 1px solid #EF3B2D;
+    padding: 3px 30px;
+}
+
+.regist__form a{
+    font-size: .9em;
+    background: #eee;
+    color: #666;
+    border: 1px solid #666;
+}
+
+.regist__form .button:hover,
+.regist__form a:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* detail__box */
+.detail__box{
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.detail__box .id{
+    margin: 0;
+}
+
+.detail__box h2{
+    margin: 0 0 25px;
+}
+
+.detail__box .area__button button,
+.detail__box .area__button a{
+    padding: 5px 30px;
+    font-weight: bold;
+    font-size: .9em;
+    color: #666;
+    border: 1px solid #666;
+}
+
+.detail__box .area__button .edit{
+    color: #FFF;
+    background: #EF3B2D;
+    border: 1px solid #EF3B2D;
+    cursor: pointer;
+    padding: 5px 30px;
+}
+
+.detail__box .area__button a:hover{
+    opacity: 0.7;
+}
+
+/* edit__form */
+.edit__form{
+    background: #efefef;
+    padding: 1em 2em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.edit__form h1{
+    margin: 0.3em 0;
+}
+
+.edit__form label{
+    margin: 0;
+}
+
+.edit__form form{
+    padding: 0 1em;
+}
+
+.edit__form .id,
+.edit__form .txt__noimage{
+    margin: 0 0 0 10px;
+}
+
+.edit__form input:not(.button),
+.edit__form select,
+.edit__form textarea{
+    height: fit-content;
+    padding: 10px;
+    width: calc(100% - 10px);
+    margin-left: 10px;
+}
+
+.edit__form input:not(.button){
+    text-indent: 5px;
+}
+
+.edit__form .form-group{
+    margin-bottom: 0.8em;
+}
+
+.edit__form .validation{
+    margin: 0 0 0 10px;
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.edit__form img{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 50vh;
+}
+
+.edit__form .submit__courner{
+    text-align: center;
+}
+
+.edit__form .button,
+.edit__form a{
+    padding: 5px 30px;
+    font-weight: bold;
+    border: 1px solid #666;
+    cursor: pointer;
+}
+
+.edit__form .button{
+    color: #FFF;
+    background: #EF3B2D;
+    border: 1px solid #EF3B2D;
+    padding: 3px 30px;
+}
+
+.edit__form a{
+    font-size: .9em;
+    background: #eee;
+    color: #666;
+}
+
+.edit__form .button:hover,
+.edit__form a:hover{
+    opacity: 0.7;
+}
+
+/* footer */
+.footer{
+    text-align: center;
+    margin: 20px 0 0 0;
+    color: #666;
+    font-size: 13px;
+}
