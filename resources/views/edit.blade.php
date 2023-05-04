@@ -7,7 +7,7 @@
         <div class="edit__form">
             @if(session('result'))
             <div class="result">
-                <p>{{session('result')}}を、更新しました。
+                <p>{{session('result')}}を更新しました。
             </div>
             @endif
 

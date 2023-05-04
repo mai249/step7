@@ -7,7 +7,7 @@
         <div class="regist__form">
             @if(session('result'))
             <div class="result">
-                <p>{{session('result')}}を、新しく登録しました。
+                <p>{{session('result')}}を新しく登録しました。
             </div>
             @endif
 
