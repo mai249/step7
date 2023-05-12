@@ -2747,7 +2747,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=8.2.0"
             },
             "type": "library",
             "extra": {
@@ -3059,7 +3059,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=8.2.0"
             },
             "type": "library",
             "extra": {
@@ -3109,7 +3109,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=8.2.0"
             },
             "type": "library",
             "extra": {
@@ -6450,7 +6450,7 @@
             },
             "require": {
                 "filp/whoops": "^2.14.5",
-                "php": "^8.0.0",
+                "php": "^8.2.0",
                 "symfony/console": "^6.0.2"
             },
             "require-dev": {
