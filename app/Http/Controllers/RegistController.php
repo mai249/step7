@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Regist;
+use App\Models\Products;
 use App\Http\Requests\RegistRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -43,7 +43,7 @@ class RegistController extends Controller
     
         try {
             // 登録処理呼び出し
-            $model = new Regist();
+            $model = new Products();
             $model->registArticle($request, $file_name);
             DB::commit();
         } catch (\Exception $e) {

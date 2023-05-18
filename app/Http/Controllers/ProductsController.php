@@ -14,14 +14,6 @@ class ProductsController extends Controller
         $this->middleware('auth');
     }
 
-    public function showList() {
-
-        $products = Products::with('companies')->get();
-
-        return view('list', ['products' => $products]);
-
-    }
-
     public function search(Request $request)
     {
         $keyword = "";
@@ -34,18 +26,9 @@ class ProductsController extends Controller
             $manufacturer = $request->input('manufacturer');
         }
 
-        $query = Products::query();
+        $query = new Products();
+        $products = $query->searchArticle($keyword, $manufacturer);
 
-        if(!empty($keyword)) {
-            $query->where('product_name', 'LIKE', "%{$keyword}%");
-        }
-        if(!empty($manufacturer)) {
-            $query->where('company_id', 'LIKE', "{$manufacturer}");
-        }
-
-        $products = $query->get();
-        
-        
         $model = new Companies();
         $companies = $model->getList();
 

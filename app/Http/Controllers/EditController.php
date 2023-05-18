@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\EditRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use App\Models\Edit;
 use App\Models\Products;
 use App\Models\Companies;
 
@@ -55,7 +54,7 @@ class EditController extends Controller
     
         try {
             // 登録処理呼び出し
-            $model = new Edit();
+            $model = new Products();
             $model->editArticle($request, $file_name);
             DB::commit();
         } catch (\Exception $e) {
