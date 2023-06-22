@@ -6,7 +6,7 @@
     <div class="main__list">
         <div class="search__form">
             <h3 class="title">商品検索</h3>
-            <form action="{{ route('search') }}" method="GET">
+            <form class="form">
                 <div class="form__courner">
                     <label for="keyword" class="search_title">商品名</label>
                     <input type="text" id="keyword" name="keyword" value="{{ $keyword }}">
@@ -17,18 +17,44 @@
                             <option value="{{ $company->id }}" >{{ $company->company_name }}</option>
                         @endforeach
                     </select>
+                    <label class="search_title, search__diff__box">価格
+                        <div class="search__diff" name="price">
+                            <input type="text" id="p_low" name="p_low" value="{{ $p_low }}" placeholder="下限">
+                            <p>～</p>
+                            <input type="text" id="p_high" name="p_high" value="{{ $p_high }}" placeholder="上限">
+                        </div>
+                    </label>
+
+                    <label class="search_title, search__diff__box">在庫数
+                        <div class="search__diff" name="stock">
+                            <input type="text" id="s_low" name="s_low" value="{{ $s_low }}" placeholder="下限">
+                            <p>～</p>
+                            <input type="text" id="s_high" name="s_high" value="{{ $s_high }}" placeholder="上限">
+                        </div>
+                    </label>
                 </div>
                 <div class="submit__courner">
-                    <input class="button" type="submit" value="検索">
-                    <a href="{{ route('search') }}">検索条件リセット</a> 
+                    <input class="button" type="submit" value="検索" id="search__btn">
+                    <a href="{{ route('search') }}" id="reset__btn">検索条件リセット</a> 
                 </div>
                 <div class="registration">
                     <a href="{{ route('regist') }}" class="registration__btn">新規登録</a>
                 </div>
+                <table class="sort__table" id="sort__form__box">
+                    <tr>
+                        <th><button value="id" class="sort__button asc">id</button></th>
+                        <th><button value="product_name" class="sort__button">商品名</button></th>
+                        <th><button value="price" class="sort__button">価格順</button></th>
+                        <th><button value="stock" class="sort__button">在庫順</button></th>
+                        <th><button value="company_id" class="sort__button">メーカー名順</button></th>
+                    </tr>
+                </table>
             </form>
         </div>
 
 
+        <div id="products__box">
+        <div id="products__async">
         @foreach ($products as $product)
             <div class="box__list">
                 <p class="id">ID：{{ $product->id }}</p>
@@ -64,7 +90,8 @@
 
                             <form action="{{ route('delete', ['id'=>$product->id]) }}" method="POST" name="delete{{ $product->id }}">
                             @csrf
-                                <button type="button" value="{{ $product->product_name }}" onClick="confirmDelete(this.value,{{ $product->id }})">削除</button>
+                                <input type="hidden" value="{{ $product->product_name }}" name="hide_name{{ $product->id }}" class="hide_name{{ $product->id }}">
+                                <button type="button" value="{{ $product->id }}" class="delete__button">削除</button>
                             @csrf
                             </form>
                         </div>
@@ -72,6 +99,8 @@
                 </div>
             </div>
         @endforeach
+        </div> <!-- #products__async -->
+        </div>
     </div>
                     
 @endsection

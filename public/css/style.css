@@ -24,13 +24,13 @@ a{
 }
 
 .search__form .form__courner{
-    display: inline-grid;
-    justify-items: start;
-    grid-template-columns: 1fr 2fr;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 40px 40px 40px 40px;
 }
 
 .search__form .search_title{
-    margin: 0.5em 0;
+    margin: 0.8em 0;
 }
 
 .search__form input:not(.button),
@@ -72,6 +72,22 @@ a{
     opacity: 0.7;
 }
 
+.search__diff__box{
+    grid-column: 1/3;
+    display: contents;
+}
+
+.search__diff{    
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px 10px;
+}
+
+.search__diff p{
+    margin-bottom: 0;
+    line-height: 33px;
+}
+
 /* registration */
 .registration{
     margin: 1em 0;
@@ -90,6 +106,48 @@ a{
 }
 
 /* box__list */
+
+.sort__table th {
+    cursor: pointer;
+    position: relative;
+}
+
+.sort__table button::before, .sort__table button::after {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 5px solid transparent;
+    right: 10px;
+    top: 50%;
+}
+
+.sort__table button::before {
+    border-bottom-color: #aaa;
+    margin-top: -10px;
+}
+
+.sort__table button::after {
+    border-top-color: #aaa;
+    margin-top: 2px;
+}
+
+.sort__table button {
+    padding: 5px 30px 5px 15px;
+}
+
+.sort__table button:hover{
+    background-color: #F09C2E;
+    color: #fff;
+}
+
+.sort__table button.asc::before {
+    border-bottom-color: #F09C2E;
+}
+
+.sort__table button.desc::after {
+    border-top-color: #F09C2E;
+}
 
 .box__list{
     margin: 1em;

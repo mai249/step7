@@ -13,26 +13,50 @@ class ProductsController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     public function search(Request $request)
     {
         $keyword = "";
         $manufacturer = "";
+        $p_low = "";
+        $p_high = "";
+        $s_low = "";
+        $s_high = "";
+        $order = 'id';
+        $sort = 'asc';
 
-        if($request->input('keyword')){
-            $keyword = $request->input('keyword');
+        if(isset($_POST['keyword']) && $_POST['keyword'] !== ''){
+            $keyword = $_POST['keyword'];
         }
-        if($request->input('manufacturer')){
-            $manufacturer = $request->input('manufacturer');
+        if(isset($_POST['manufacturer']) && $_POST['manufacturer'] !== ''){
+            $manufacturer = $_POST['manufacturer'];
+        }
+        if(isset($_POST['p_low']) && $_POST['p_low'] !== ''){
+            $p_low = $_POST['p_low'];
+        }
+        if(isset($_POST['p_high']) && $_POST['p_high'] !== ''){
+            $p_high = $_POST['p_high'];
+        }
+        if(isset($_POST['s_low']) && $_POST['s_low'] !== ''){
+            $s_low = $_POST['s_low'];
+        }
+        if(isset($_POST['s_high']) && $_POST['s_high'] !== ''){
+            $s_high = $_POST['s_high'];
+        }
+        if(isset($_POST['order']) && $_POST['order'] !== ''){
+            $order = $_POST['order'];
+        }
+        if(isset($_POST['sort']) && $_POST['sort'] !== ''){
+            $sort = $_POST['sort'];
         }
 
         $query = new Products();
-        $products = $query->searchArticle($keyword, $manufacturer);
+        $products = $query->searchArticle($keyword, $manufacturer, $p_low, $p_high, $s_low, $s_high, $order, $sort);
 
         $model = new Companies();
         $companies = $model->getList();
 
-        return view('list', compact('products', 'companies', ['keyword', 'manufacturer']));
+        return view('list', compact('products', 'companies', ['keyword', 'manufacturer', 'p_low', 'p_high', 's_low', 's_high', 'order', 'sort']));
     }
 
     public function delete($id)

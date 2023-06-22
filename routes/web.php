@@ -21,6 +21,7 @@ Auth::routes();
 
 // 検索
 Route::get('/list', [App\Http\Controllers\ProductsController::class, 'search'])->name('search');
+Route::post('/list', [App\Http\Controllers\ProductsController::class, 'search'])->name('search');
 // 詳細閲覧
 Route::post('/detail{id}', [App\Http\Controllers\ProductsController::class, 'detail'])->name('detail');
 

@@ -53,15 +53,37 @@ class Products extends Model
         ]);
     }
 
-    public static function searchArticle($keyword, $manufacturer) {
+    public function stockArticle($product_id, $product_stock) {
+        // 登録処理
+        DB::table('products')->where('id', $product_id)->update([
+            'stock' => $product_stock,
+        ]);
+    }
+
+    public static function searchArticle($keyword, $manufacturer, $p_low, $p_high, $s_low, $s_high, $order, $sort) {
         // 検索処理
 
         $query = Products::query();
+        if(!empty($order)) {
+            $query->orderBy($order, $sort);
+        }
         if(!empty($keyword)) {
             $query->where('product_name', 'LIKE', "%{$keyword}%");
         }
         if(!empty($manufacturer)) {
             $query->where('company_id', 'LIKE', "{$manufacturer}");
+        }
+        if(!empty($p_low)) {
+            $query->where('price', '>=', "{$p_low}");
+        }
+        if(!empty($p_high)) {
+            $query->where('price', '<=', "{$p_high}");
+        }
+        if(!empty($s_low)) {
+            $query->where('stock', '>=', "{$s_low}");
+        }
+        if(!empty($s_high)) {
+            $query->where('stock', '<=', "{$s_high}");
         }
         $search = $query->with('companies')->get(); 
 

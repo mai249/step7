@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use DateTime;
 
 class Sales extends Model
 {
@@ -20,4 +21,14 @@ class Sales extends Model
 
         return $sales;
     }
+
+    public function purchaseArticle($product_id) {
+        // 登録処理
+        DB::table('sales')->insert([
+            'product_id' => $product_id,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+    }
+
 }

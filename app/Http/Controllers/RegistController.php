@@ -35,7 +35,7 @@ class RegistController extends Controller
             $file_name = $request_img->getClientOriginalName();
 
             // 取得したファイル名で保存
-            $img_path = $request->file('img_path')->storeAs('public/', $file_name);
+            $img_path = $request->file('img_path')->storeAs('public/storage/img', $file_name);
         }
 
         // トランザクション開始
