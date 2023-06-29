@@ -30,30 +30,18 @@ class SalesController extends Controller
         if($product_stock <= 0){
             exit ($product_name . 'は売り切れました。');
         }
-
-
-        //salesテーブルにレコード追加
-        // トランザクション開始
-        DB::beginTransaction();
-            
-        try {
-            // 登録処理呼び出し
-            $model = new Sales();
-            $model->purchaseArticle($product_id);
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            return back();
-        }
-
+        
         //在庫数減らしてDB反映
         $product_stock -= 1;
 
         // トランザクション開始
         DB::beginTransaction();
-    
+
         try {
-            // 登録処理呼び出し
+            // 購入登録（salesテーブル）
+            $model = new Sales();
+            $model->purchaseArticle($product_id);
+            // 商品情報-在庫数反映（productテーブル）
             $model = new Products();
             $model->stockArticle($product_id, $product_stock);
             DB::commit();
